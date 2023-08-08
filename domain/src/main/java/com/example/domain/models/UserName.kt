@@ -1,4 +1,4 @@
-package com.example.cleanarchitecture.domain.models
+package com.example.domain.models
 
 class UserName (
     val firstName : String,

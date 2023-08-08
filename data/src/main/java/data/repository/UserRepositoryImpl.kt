@@ -1,10 +1,11 @@
-package com.example.cleanarchitecture.data.repository
+package data.repository
 
-import com.example.cleanarchitecture.data.storage.models.User
-import com.example.cleanarchitecture.data.storage.UserStorage
-import com.example.cleanarchitecture.domain.models.SaveUserNameParam
-import com.example.cleanarchitecture.domain.models.UserName
-import com.example.cleanarchitecture.domain.repository.UserRepository
+import com.example.domain.models.SaveUserNameParam
+import com.example.domain.models.UserName
+import com.example.domain.repository.UserRepository
+import data.storage.models.User
+import data.storage.UserStorage
+
 
 
 class UserRepositoryImpl(private val userStorage: UserStorage) : UserRepository {

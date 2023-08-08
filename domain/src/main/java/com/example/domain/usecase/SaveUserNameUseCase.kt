@@ -1,7 +1,7 @@
-package com.example.cleanarchitecture.domain.usecase
+package com.example.domain.usecase
 
-import com.example.cleanarchitecture.domain.models.SaveUserNameParam
-import com.example.cleanarchitecture.domain.repository.UserRepository
+import com.example.domain.models.SaveUserNameParam
+import com.example.domain.repository.UserRepository
 
 class SaveUserNameUseCase (private val userRepository : UserRepository) {
     fun execute(param: SaveUserNameParam): Boolean {

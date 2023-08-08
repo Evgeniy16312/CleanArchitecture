@@ -1,9 +1,9 @@
-package com.example.cleanarchitecture.data.storage.sharedprefs
+package data.storage.sharedprefs
 
 import android.content.Context
 
-import com.example.cleanarchitecture.data.storage.UserStorage
-import com.example.cleanarchitecture.data.storage.models.User
+import data.storage.UserStorage
+import data.storage.models.User
 
 private const val SHARED_PREFS_NAME = "shared_prefs_name"
 private const val KEY_FIRST_NAME = "first_name"
