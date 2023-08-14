@@ -1,31 +1,15 @@
 package com.example.cleanarchitecture.presentation
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.domain.usecase.GetUserNameUseCase
-import data.repository.UserRepositoryImpl
-import data.storage.sharedprefs.SharedPrefUserStorage
+import com.example.domain.usecase.SaveUserNameUseCase
+import javax.inject.Inject
 
-class MainViewModelFactory(context: Context) : ViewModelProvider.Factory {
-
-    private val userRepository by lazy(LazyThreadSafetyMode.NONE) {
-        UserRepositoryImpl(
-            userStorage = SharedPrefUserStorage(
-                context = context
-            )
-        )
-    }
-    private val getUserNameUseCase by lazy {
-        GetUserNameUseCase(
-            userRepository = userRepository
-        )
-    }
-    private val saveUserNameUseCase by lazy {
-        com.example.domain.usecase.SaveUserNameUseCase(
-            userRepository = userRepository
-        )
-    }
+class MainViewModelFactory @Inject constructor (
+    val getUserNameUseCase: GetUserNameUseCase,
+    val saveUserNameUseCase: SaveUserNameUseCase
+) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(
@@ -33,5 +17,4 @@ class MainViewModelFactory(context: Context) : ViewModelProvider.Factory {
             saveUserNameUseCase = saveUserNameUseCase
         ) as T
     }
-
 }
