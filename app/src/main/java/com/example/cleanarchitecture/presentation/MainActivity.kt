@@ -32,17 +32,17 @@ class MainActivity : AppCompatActivity() {
         )[MainViewModel::class.java]
 
 
-        vm.resultLive.observe(this) {
-            binding.textView.text = it
+        vm.stateLive.observe(this) { state ->
+            binding.textView.text = "${state.firstName} ${state.lastName} ${state.saveResult}"
         }
 
         binding.buttonSave.setOnClickListener {
             val text = binding.editTv.text.toString()
-            vm.save(text).toString()
+            vm.send(SaveEvent(text = text))
         }
 
         binding.buttonGet.setOnClickListener {
-            vm.load()
+            vm.send(LoadEvent())
         }
     }
 }
