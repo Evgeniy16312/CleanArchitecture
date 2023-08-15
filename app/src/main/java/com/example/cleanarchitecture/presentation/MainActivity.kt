@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
+import com.example.cleanarchitecture.app.App
 import com.example.cleanarchitecture.databinding.ActivityMainBinding
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+    @Inject
+    lateinit var vmFactory: MainViewModelFactory
     private lateinit var binding: ActivityMainBinding
     private lateinit var vm: MainViewModel
 
@@ -18,24 +22,27 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        vm = ViewModelProvider(
-            this,
-            MainViewModelFactory(this)
-        )[MainViewModel::class.java]
+        (applicationContext as App).appComponent.inject(this)
 
         Log.e("AAA", "MainActivity created")
 
-       vm.resultLive.observe(this) {
-           binding.textView.text = it
-       }
+        vm = ViewModelProvider(
+            this,
+            vmFactory
+        )[MainViewModel::class.java]
+
+
+        vm.stateLive.observe(this) { state ->
+            binding.textView.text = "${state.firstName} ${state.lastName} ${state.saveResult}"
+        }
 
         binding.buttonSave.setOnClickListener {
             val text = binding.editTv.text.toString()
-            vm.save(text).toString()
+            vm.send(SaveEvent(text = text))
         }
 
         binding.buttonGet.setOnClickListener {
-             vm.load()
+            vm.send(LoadEvent())
         }
     }
 }
