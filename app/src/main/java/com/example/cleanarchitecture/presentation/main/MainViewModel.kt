@@ -4,11 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cleanarchitecture.presentation.main.LoadEvent
-import com.example.cleanarchitecture.presentation.main.MainEvent
-import com.example.cleanarchitecture.presentation.main.MainState
-import com.example.cleanarchitecture.presentation.main.SaveEvent
-import com.example.domain.models.UserName
+import com.example.domain.models.main.UserName
+import com.example.domain.models.main.SaveUserNameParam
 import com.example.domain.usecase.GetUserNameUseCase
 import com.example.domain.usecase.SaveUserNameUseCase
 
@@ -47,7 +44,7 @@ class MainViewModel(
     }
 
     private fun save(text: String) {
-        val params = com.example.domain.models.SaveUserNameParam(name = text)
+        val params = SaveUserNameParam(name = text)
         val resultData: Boolean = saveUserNameUseCase.execute(param = params)
         stateLiveMutable.value = MainState(
             saveResult = resultData,

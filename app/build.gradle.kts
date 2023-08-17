@@ -54,6 +54,17 @@ dependencies {
     implementation(project(mapOf("path" to ":domain")))
     implementation(project(mapOf("path" to ":data")))
 
+    val defCoilVersion = "2.1.0"
+    implementation ("io.coil-kt:coil:$defCoilVersion")
+    implementation ("io.coil-kt:coil-gif:$defCoilVersion")
+
+    val defCoroutinesVersion = "1.6.0"
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$defCoroutinesVersion")
+
+    val defRetrofitVersion = "2.9.0"
+    implementation ("com.squareup.retrofit2:retrofit:$defRetrofitVersion")
+    implementation ("com.squareup.retrofit2:converter-gson:$defRetrofitVersion")
+
 
     //Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationComponentsVersion")

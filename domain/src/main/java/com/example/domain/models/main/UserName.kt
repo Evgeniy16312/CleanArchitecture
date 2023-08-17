@@ -1,4 +1,4 @@
-package com.example.domain.models
+package com.example.domain.models.main
 
 class UserName (
     val firstName : String,

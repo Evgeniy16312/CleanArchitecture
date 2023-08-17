@@ -5,7 +5,7 @@ import com.example.cleanarchitecture.presentation.main.MainActivity
 import com.example.cleanarchitecture.presentation.main.MainFragment
 import dagger.Component
 
-@Component(modules = [AppModule::class, DomainModule::class, DataModule::class])
+@Component(modules = [AppModule::class, DomainModule::class, DataModule::class, NetworkModule::class] )
 interface AppComponent {
     fun inject(mainActivity: MainActivity)
 

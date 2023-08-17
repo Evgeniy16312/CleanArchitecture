@@ -1,7 +1,7 @@
 package data.repository
 
-import com.example.domain.models.SaveUserNameParam
-import com.example.domain.models.UserName
+import com.example.domain.models.main.SaveUserNameParam
+import com.example.domain.models.main.UserName
 import com.example.domain.repository.UserRepository
 import data.storage.models.User
 import data.storage.UserStorage

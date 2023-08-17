@@ -5,21 +5,23 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
-
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.cleanarchitecture.presentation.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_heroisListFragment"
-            app:destination="@id/heroisListFragment" />
+            app:destination="@id/heroisListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/heroisListFragment"
         android:name="com.example.cleanarchitecture.presentation.dota.HeroisListFragment"
         android:label="fragment_herois_list"
         tools:layout="@layout/fragment_herois_list" />
-
 
 </navigation>
