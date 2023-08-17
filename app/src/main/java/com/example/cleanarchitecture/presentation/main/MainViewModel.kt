@@ -1,9 +1,13 @@
-package com.example.cleanarchitecture.presentation
+package com.example.cleanarchitecture.presentation.main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.cleanarchitecture.presentation.main.LoadEvent
+import com.example.cleanarchitecture.presentation.main.MainEvent
+import com.example.cleanarchitecture.presentation.main.MainState
+import com.example.cleanarchitecture.presentation.main.SaveEvent
 import com.example.domain.models.UserName
 import com.example.domain.usecase.GetUserNameUseCase
 import com.example.domain.usecase.SaveUserNameUseCase

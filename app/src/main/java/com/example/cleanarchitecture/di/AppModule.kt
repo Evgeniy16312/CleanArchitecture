@@ -1,7 +1,7 @@
 package com.example.cleanarchitecture.di
 
 import android.content.Context
-import com.example.cleanarchitecture.presentation.MainViewModelFactory
+import com.example.cleanarchitecture.presentation.main.MainViewModelFactory
 import com.example.domain.usecase.GetUserNameUseCase
 import com.example.domain.usecase.SaveUserNameUseCase
 import dagger.Module

@@ -7,7 +7,6 @@ import data.storage.models.User
 import data.storage.UserStorage
 
 
-
 class UserRepositoryImpl(private val userStorage: UserStorage) : UserRepository {
     override fun saveName(saveParam: SaveUserNameParam): Boolean {
         val user = mapToStorage(saveParam)
