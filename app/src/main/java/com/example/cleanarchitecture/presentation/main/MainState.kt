@@ -1,4 +1,4 @@
-package com.example.cleanarchitecture.presentation
+package com.example.cleanarchitecture.presentation.main
 
 data class MainState(
     val saveResult: Boolean,

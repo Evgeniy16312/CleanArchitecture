@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.cleanarchitecture.presentation.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_heroisListFragment"
+            app:destination="@id/heroisListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/heroisListFragment"
+        android:name="com.example.cleanarchitecture.presentation.dota.HeroisListFragment"
+        android:label="fragment_herois_list"
+        tools:layout="@layout/fragment_herois_list">
+        <action
+            android:id="@+id/action_heroisListFragment_to_detailInfoHeroFragment"
+            app:destination="@id/detailInfoHeroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailInfoHeroFragment"
+        android:name="com.example.cleanarchitecture.presentation.detail_info_hero.DetailInfoHeroFragment"
+        android:label="fragment_detail_info_hero"
+        tools:layout="@layout/fragment_detail_info_hero">
+
+        <argument
+            android:name="heroId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

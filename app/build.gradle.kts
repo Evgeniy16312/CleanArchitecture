@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -41,6 +42,7 @@ android {
 }
 
 dependencies {
+    val navigationComponentsVersion = System.getProperty("navigationComponentsVersion")
     //Dagger2
     implementation("com.google.dagger:dagger:2.46.1")
     implementation("com.google.dagger:dagger-android-support:2.46.1")
@@ -51,6 +53,22 @@ dependencies {
     //Подключение архитектурных модулей
     implementation(project(mapOf("path" to ":domain")))
     implementation(project(mapOf("path" to ":data")))
+
+    val defCoilVersion = "2.1.0"
+    implementation ("io.coil-kt:coil:$defCoilVersion")
+    implementation ("io.coil-kt:coil-gif:$defCoilVersion")
+
+    val defCoroutinesVersion = "1.6.0"
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$defCoroutinesVersion")
+
+    val defRetrofitVersion = "2.9.0"
+    implementation ("com.squareup.retrofit2:retrofit:$defRetrofitVersion")
+    implementation ("com.squareup.retrofit2:converter-gson:$defRetrofitVersion")
+
+
+    //Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:$navigationComponentsVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navigationComponentsVersion")
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
