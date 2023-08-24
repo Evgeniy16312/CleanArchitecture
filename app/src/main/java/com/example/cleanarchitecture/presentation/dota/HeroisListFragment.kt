@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.cleanarchitecture.app.App
 import com.example.cleanarchitecture.databinding.FragmentHeroisListBinding
+import com.example.cleanarchitecture.navigation_utils.MainNavigationManager
+import com.example.cleanarchitecture.navigation_utils.NavigationViewModel
+import com.example.cleanarchitecture.presentation.detail_info_hero.DetailInfoHeroFragmentArgs
 import com.example.cleanarchitecture.presentation.dota.adapter.HeroListAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
@@ -31,6 +35,8 @@ class HeroisListFragment : Fragment() {
             vmFactory
         )[HeroListViewModel::class.java]
     }
+
+    private val navigationViewModel: NavigationViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -93,9 +99,6 @@ class HeroisListFragment : Fragment() {
                 vm.onTriggerEvent(HeroListEvent.NavigateToHeroDetailsScreen(heroId = heroId))
             }
         )
-//        heroListAdapter.setOnItemClickListener { heroId ->
-//            viewModel.onTriggerEvent(HeroListEvent.NavigateToHeroDetailsScreen(heroId = heroId))
-//        }
         binding.rvHeroesList.apply {
             adapter = heroListAdapter
             setHasFixedSize(true)
@@ -103,9 +106,8 @@ class HeroisListFragment : Fragment() {
     }
 
     private fun navigateToHeroDetailsScreen(heroId: Int) {
-//        val action = HeroListFragmentDirections.actionHeroListFragmentToHeroDetailsFragment(
-//            heroId = heroId
-//        )
-//        findNavController().navigate(action)
+        navigationViewModel.navigateTo(MainNavigationManager.DetailInfoHeroFragment(
+            DetailInfoHeroFragmentArgs(heroId)
+        ))
     }
 }

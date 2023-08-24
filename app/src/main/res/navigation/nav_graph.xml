@@ -22,6 +22,20 @@
         android:id="@+id/heroisListFragment"
         android:name="com.example.cleanarchitecture.presentation.dota.HeroisListFragment"
         android:label="fragment_herois_list"
-        tools:layout="@layout/fragment_herois_list" />
+        tools:layout="@layout/fragment_herois_list">
+        <action
+            android:id="@+id/action_heroisListFragment_to_detailInfoHeroFragment"
+            app:destination="@id/detailInfoHeroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailInfoHeroFragment"
+        android:name="com.example.cleanarchitecture.presentation.detail_info_hero.DetailInfoHeroFragment"
+        android:label="fragment_detail_info_hero"
+        tools:layout="@layout/fragment_detail_info_hero">
+
+        <argument
+            android:name="heroId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
