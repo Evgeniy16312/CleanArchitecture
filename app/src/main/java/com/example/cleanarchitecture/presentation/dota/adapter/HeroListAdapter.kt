@@ -19,7 +19,6 @@ class HeroListAdapter(
     private val onItemClickListener: ((Int) -> Unit)
 ) : ListAdapter<Hero, HeroListAdapter.ViewHolder>(DiffCall()) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = HeroListRvItemBinding.inflate(
             LayoutInflater.from(parent.context),
